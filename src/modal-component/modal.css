@@ -1,0 +1,48 @@
+.modal-body {
+  position: fixed;
+  z-index: 200;
+  top: 20%;
+  left: 25%;
+  width: 50%;
+  background-color: yellow;
+  opacity: 0;
+}
+
+.modal-hide {
+  animation: fade-in 0.4s ease-out forwards ;
+}
+
+.modal-show {
+    animation: fade-out 0.4s ease-out forwards ;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(-50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-150%);
+  }
+}
+
+@keyframes fade-out {
+    0% {
+      opacity: 0;
+      transform: translateY(-150%);
+    }
+    50% {
+      opacity: 0.5;
+      transform: translateY(20%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  
