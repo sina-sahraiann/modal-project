@@ -1,15 +1,15 @@
 import React, { useEffect, useRef } from 'react'
 import './modal.css'
 
-const Modal = ({ showModal, closeModal, children }: { showModal: boolean, closeModal(): void, children: React.ReactNode }) => {
+const Modal = ({ showModal, closeModal, children }: { showModal: string, closeModal(): void, children: React.ReactNode }) => {
 
     const modalRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        document.addEventListener('click', clickOutsideHandlert, true)
+        document.addEventListener('click', clickOutsideHandler, true)
     }, [])
 
-    function clickOutsideHandlert(this: Document, ev: any): void {
+    function clickOutsideHandler(this: Document, ev: any): void {
         if (!modalRef.current?.contains(ev.target)) {
             closeModal()
         }
@@ -18,7 +18,9 @@ const Modal = ({ showModal, closeModal, children }: { showModal: boolean, closeM
     const handleCloseButton: React.MouseEventHandler<HTMLButtonElement> = () => {
         closeModal()
     }
-    const cssClasses = ['modal-body', showModal ? 'modal-show' : 'modal-hide',]
+    const cssClasses = ['modal-body', showModal === 'entered' ?
+        'modal-show' : showModal === 'exiting' ?
+            'modal-hide' : null]
 
 
     return (

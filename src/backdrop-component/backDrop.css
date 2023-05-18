@@ -6,7 +6,7 @@
     height: 100%;
     top: 0;
     left: 0;
-    transition: 0.3s;
+    transition: all ease-in 0.4s;
 }
 
 .backdrop-show {
@@ -15,5 +15,4 @@
 
 .backdrop-hide  {
     opacity: 0;
-    z-index: -100;
 }

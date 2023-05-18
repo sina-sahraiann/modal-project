@@ -1,13 +1,13 @@
 import './backDrop.css'
 
 type Props = {
-    show: boolean,
+    show: string,
 }
 
 const BackDrop = ({ show }: Props) => {
-    const cssClasses = ['backdrop', show ? 'backdrop-show' : 'backdrop-hide']
-
-
+    const cssClasses = ['backdrop', show === 'entering' ?
+    'backdrop-show' : show === 'exiting' ?
+        'backdrop-hide' : null]
     return (
         <div className={cssClasses.join(' ')}></div>
     )
